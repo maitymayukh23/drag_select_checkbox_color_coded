@@ -10,7 +10,7 @@
     <div class="unselectable" *ngFor="let x of totalBoxes; index as i">
         <div id="d.{{i}}" [style.backgroundColor]="getColor(x)">
             <label for="{{i}}" (mouseenter)="dragSelectedCheckBox(x)" (click)="clickSelectedCheckbox(i)">{{i}}</label>
-            <input type="checkbox" id="{{i}}" class="check" [disabled]="x.status!=true">
+            <input type="checkbox" id="{{i}}" class="check" >
         </div>
 
     </div>

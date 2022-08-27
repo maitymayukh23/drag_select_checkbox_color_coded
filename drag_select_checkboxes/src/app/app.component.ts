@@ -96,8 +96,12 @@ export class AppComponent {
     //retrieving the value of the chosen color
     this.color = (document.getElementById('color') as HTMLInputElement).value;
 
-    //adding the color in the chosenColor array
-    this.chosenColors.push(this.color);
+    //checking if selections with same color has been made earlier
+    var isColorPresent = this.chosenColors.filter((f) => f === this.color);
+    if (isColorPresent.length <= 0) {
+      //adding the color in the chosenColor array
+      this.chosenColors.push(this.color);
+    }
 
     //iterating through the selected checkbox array
     this.selectedBoxIds.forEach((e) => {
@@ -119,7 +123,7 @@ export class AppComponent {
   //method called to remove a selection
   remove(color: string) {
     //removing the color from the array
-    this.chosenColors.splice(this.chosenColors.indexOf(color),1);
+    this.chosenColors.splice(this.chosenColors.indexOf(color), 1);
 
     //changing the condition of the checkboxes that are saved with the given color to their initial condition
     this.totalBoxes.forEach((element) => {
